@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.commons.rico.ativos.com.br/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="OmnichannelService" targetNamespace="http://service.commons.rico.ativos.com.br/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.commons.rico.ativos.com.br/" elementFormDefault="unqualified" targetNamespace="http://service.commons.rico.ativos.com.br/" version="1.0">
+
+  <xs:element name="enviarProximosBoletos" type="tns:enviarProximosBoletos"/>
+
+  <xs:element name="enviarProximosBoletosResponse" type="tns:enviarProximosBoletosResponse"/>
+
+  <xs:element name="pesquisarCPFOmnichannel" type="tns:pesquisarCPFOmnichannel"/>
+
+  <xs:element name="pesquisarCPFOmnichannelResponse" type="tns:pesquisarCPFOmnichannelResponse"/>
+
+  <xs:complexType name="enviarProximosBoletos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ndg" type="xs:string"/>
+      <xs:element minOccurs="0" name="ddd" type="xs:string"/>
+      <xs:element minOccurs="0" name="numero" type="xs:string"/>
+      <xs:element minOccurs="0" name="tipoTelefone" type="tns:tipoTelefone"/>
+      <xs:element minOccurs="0" name="statusTelefone" type="tns:statusTelefone"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="enviarProximosBoletosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:return"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="return">
+    <xs:sequence>
+      <xs:element name="erro" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="mensagem" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pesquisarCPFOmnichannel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cpfCnpj" type="xs:string"/>
+      <xs:element minOccurs="0" name="ddd" type="xs:string"/>
+      <xs:element minOccurs="0" name="numero" type="xs:string"/>
+      <xs:element minOccurs="0" name="tipoTelefone" type="tns:tipoTelefone"/>
+      <xs:element minOccurs="0" name="statusTelefone" type="tns:statusTelefone"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pesquisarCPFOmnichannelResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:clienteURAOmniType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="clienteURAOmniType">
+    <xs:complexContent>
+      <xs:extension base="tns:return">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="nome" type="xs:string"/>
+          <xs:element minOccurs="0" name="cpfCnpj" type="xs:string"/>
+          <xs:element minOccurs="0" name="ndg" type="xs:string"/>
+          <xs:element minOccurs="0" name="escritorioPreferencial" type="xs:string"/>
+          <xs:element minOccurs="0" name="nomeEscritorio" type="xs:string"/>
+          <xs:element minOccurs="0" name="telefoneEscritorio" type="xs:string"/>
+          <xs:element name="ramal" type="xs:int"/>
+          <xs:element name="qtdeAcordosVigentes" type="xs:int"/>
+          <xs:element minOccurs="0" name="lstAcordos">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="Acordo" type="tns:acordo"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="acordo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="numeroAcordo" type="xs:int"/>
+      <xs:element minOccurs="0" name="dataAcordo" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="dataAprovacao" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="responsavel" type="xs:string"/>
+      <xs:element minOccurs="0" name="responsavelAprovacao" type="xs:string"/>
+      <xs:element minOccurs="0" name="situacaoAcordo" type="tns:situacaoAcordo"/>
+      <xs:element minOccurs="0" name="tipoAcordo" type="tns:tipoAcordo"/>
+      <xs:element minOccurs="0" name="statusPagamento" type="tns:statusPagamento"/>
+      <xs:element minOccurs="0" name="statusCumprimento" type="tns:statusCumprimento"/>
+      <xs:element minOccurs="0" name="valorNegociado" type="xs:double"/>
+      <xs:element minOccurs="0" name="valorJuros" type="xs:double"/>
+      <xs:element minOccurs="0" name="valorAjuste" type="xs:double"/>
+      <xs:element minOccurs="0" name="statusInadimplencia" type="tns:statusInadimplencia"/>
+      <xs:element minOccurs="0" name="dataInadimplencia" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="dataUltimaModificacao" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="responsavelUltimaModificacao" type="xs:string"/>
+      <xs:element minOccurs="0" name="operacoes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="operacao" type="tns:operacao"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="parcelas">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="parcela" type="tns:parcela"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="escritorio" type="tns:escritorio"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="operacao">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="idOperacao" type="xs:int"/>
+      <xs:element minOccurs="0" name="contrato" type="xs:string"/>
+      <xs:element minOccurs="0" name="lote" type="xs:int"/>
+      <xs:element minOccurs="0" name="qtdeNegociacao" type="xs:int"/>
+      <xs:element minOccurs="0" name="produto" type="tns:produto"/>
+      <xs:element minOccurs="0" name="modalidade" type="tns:modalidade"/>
+      <xs:element minOccurs="0" name="statusAcordo" type="xs:string"/>
+      <xs:element minOccurs="0" name="statusOperacao" type="xs:string"/>
+      <xs:element minOccurs="0" name="valorPresente" type="xs:double"/>
+      <xs:element minOccurs="0" name="valorPresenteFinanceiro" type="xs:double"/>
+      <xs:element minOccurs="0" name="valorAtualizado" type="xs:double"/>
+      <xs:element minOccurs="0" name="ultimoValorNegociado" type="xs:double"/>
+      <xs:element minOccurs="0" name="dataVencimento" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="valorLiquidacao" type="xs:double"/>
+      <xs:element minOccurs="0" name="valorSaldoAquisicao" type="xs:double"/>
+      <xs:element minOccurs="0" name="valorSaldoPerdas" type="xs:double"/>
+      <xs:element minOccurs="0" name="valorSaldoResidual" type="xs:double"/>
+      <xs:element minOccurs="0" name="dataInclusao" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="statusContabil" type="xs:string"/>
+      <xs:element minOccurs="0" name="campanha" type="xs:int"/>
+      <xs:element minOccurs="0" name="dataStatusOperacao" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="classe" type="xs:int"/>
+      <xs:element minOccurs="0" name="segmento" type="xs:int"/>
+      <xs:element minOccurs="0" name="tipo" type="xs:int"/>
+      <xs:element minOccurs="0" name="esquemaNegociacao" type="xs:int"/>
+      <xs:element minOccurs="0" name="statusSPC" type="xs:string"/>
+      <xs:element minOccurs="0" name="statusHabilitado" type="xs:string"/>
+      <xs:element minOccurs="0" name="qtdCedulas" type="xs:int"/>
+      <xs:element minOccurs="0" name="procuradoriaResponsavel" type="xs:string"/>
+      <xs:element minOccurs="0" name="iofResponsavel" type="xs:double"/>
+      <xs:element minOccurs="0" name="qtdNegociacoes" type="xs:int"/>
+      <xs:element minOccurs="0" name="valorNegociado" type="xs:double"/>
+      <xs:element minOccurs="0" name="valorSaldoOperacao" type="xs:double"/>
+      <xs:element minOccurs="0" name="taxaProduto" type="xs:double"/>
+      <xs:element minOccurs="0" name="agencia" type="xs:string"/>
+      <xs:element minOccurs="0" name="origem" type="tns:origem"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="produto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string"/>
+      <xs:element minOccurs="0" name="nome" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modalidade">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="codigo" type="xs:string"/>
+      <xs:element minOccurs="0" name="nome" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="origem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="sigla" type="xs:string"/>
+      <xs:element minOccurs="0" name="descricao" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="parcela">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ndg" type="xs:string"/>
+      <xs:element minOccurs="0" name="numero" type="xs:int"/>
+      <xs:element minOccurs="0" name="dataVencimento" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="valor" type="xs:double"/>
+      <xs:element minOccurs="0" name="status" type="tns:statusParcela"/>
+      <xs:element minOccurs="0" name="numeroBoleto" type="xs:int"/>
+      <xs:element minOccurs="0" name="dataPagamento" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="escritorio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nome" type="xs:string"/>
+      <xs:element minOccurs="0" name="nomeAbreviado" type="xs:string"/>
+      <xs:element minOccurs="0" name="telefone" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="tipoTelefone">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RESIDENCIAL"/>
+      <xs:enumeration value="CELULAR"/>
+      <xs:enumeration value="COMERCIAL"/>
+      <xs:enumeration value="OUTRO"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="statusTelefone">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SEM_IDENTIFICACAO"/>
+      <xs:enumeration value="MELHOR_ATENDE"/>
+      <xs:enumeration value="ATENDE"/>
+      <xs:enumeration value="NAO_ATENDE"/>
+      <xs:enumeration value="RECADO"/>
+      <xs:enumeration value="INVALIDO"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="situacaoAcordo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NAO_EXAMINADO"/>
+      <xs:enumeration value="APROVADO"/>
+      <xs:enumeration value="REJEITADO"/>
+      <xs:enumeration value="EM_ANALISE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="tipoAcordo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INDEFINIDO"/>
+      <xs:enumeration value="EXTERNO"/>
+      <xs:enumeration value="EXTRAORDINARIO"/>
+      <xs:enumeration value="HOMESITE"/>
+      <xs:enumeration value="JURIDICO"/>
+      <xs:enumeration value="BOLETAGEM"/>
+      <xs:enumeration value="PRODUTO"/>
+      <xs:enumeration value="VP"/>
+      <xs:enumeration value="PGFN"/>
+      <xs:enumeration value="MENOR"/>
+      <xs:enumeration value="MOBILE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="statusPagamento">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SEM_PAGAMENTO"/>
+      <xs:enumeration value="COM_PAGAMENTO"/>
+      <xs:enumeration value="LIQUIDADO"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="statusCumprimento">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VIGENTE"/>
+      <xs:enumeration value="NAO_CUMPRIDO"/>
+      <xs:enumeration value="CANCELADO"/>
+      <xs:enumeration value="REJEITADO"/>
+      <xs:enumeration value="CUMPRIDO"/>
+      <xs:enumeration value="RESCINDIDO"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="statusInadimplencia">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NAO_INADIMPLENTE"/>
+      <xs:enumeration value="INADIMPLENTE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="statusParcela">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="A_PAGAR"/>
+      <xs:enumeration value="PAGA"/>
+      <xs:enumeration value="PAGAMENTO_MAIOR"/>
+      <xs:enumeration value="PAGAMENTO_MENOR"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="enviarProximosBoletosResponse">
+    <wsdl:part element="tns:enviarProximosBoletosResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pesquisarCPFOmnichannelResponse">
+    <wsdl:part element="tns:pesquisarCPFOmnichannelResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pesquisarCPFOmnichannel">
+    <wsdl:part element="tns:pesquisarCPFOmnichannel" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enviarProximosBoletos">
+    <wsdl:part element="tns:enviarProximosBoletos" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="OmnichannelService">
+    <wsdl:operation name="enviarProximosBoletos">
+      <wsdl:input message="tns:enviarProximosBoletos" name="enviarProximosBoletos">
+    </wsdl:input>
+      <wsdl:output message="tns:enviarProximosBoletosResponse" name="enviarProximosBoletosResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarCPFOmnichannel">
+      <wsdl:input message="tns:pesquisarCPFOmnichannel" name="pesquisarCPFOmnichannel">
+    </wsdl:input>
+      <wsdl:output message="tns:pesquisarCPFOmnichannelResponse" name="pesquisarCPFOmnichannelResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OmnichannelServiceSoapBinding" type="tns:OmnichannelService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="enviarProximosBoletos">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="enviarProximosBoletos">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="enviarProximosBoletosResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarCPFOmnichannel">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="pesquisarCPFOmnichannel">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pesquisarCPFOmnichannelResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OmnichannelService">
+    <wsdl:port binding="tns:OmnichannelServiceSoapBinding" name="OmnichannelPort">
+      <soap:address location="http://localhost:8680/rico-webservice/OmnichannelService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
