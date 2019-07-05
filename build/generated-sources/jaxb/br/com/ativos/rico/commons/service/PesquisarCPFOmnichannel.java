@@ -1,8 +1,8 @@
 //
-// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.11 
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementaï¿½ï¿½o de Referï¿½ncia (JAXB) de Bind XML, v2.2.11 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2019.07.04 às 05:17:54 PM GMT-03:00 
+// Todas as modificaï¿½ï¿½es neste arquivo serï¿½o perdidas apï¿½s a recompilaï¿½ï¿½o do esquema de origem. 
+// Gerado em: 2019.07.04 ï¿½s 05:17:54 PM GMT-03:00 
 //
 
 
@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de pesquisarCPFOmnichannel complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteï¿½do esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType name="pesquisarCPFOmnichannel"&gt;
@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@XmlRootElement(name = "return")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "pesquisarCPFOmnichannel", propOrder = {
     "cpfCnpj",
@@ -56,7 +57,7 @@ public class PesquisarCPFOmnichannel {
     protected StatusTelefone statusTelefone;
 
     /**
-     * Obtém o valor da propriedade cpfCnpj.
+     * Obtï¿½m o valor da propriedade cpfCnpj.
      * 
      * @return
      *     possible object is
@@ -80,7 +81,7 @@ public class PesquisarCPFOmnichannel {
     }
 
     /**
-     * Obtém o valor da propriedade ddd.
+     * Obtï¿½m o valor da propriedade ddd.
      * 
      * @return
      *     possible object is
@@ -104,7 +105,7 @@ public class PesquisarCPFOmnichannel {
     }
 
     /**
-     * Obtém o valor da propriedade numero.
+     * Obtï¿½m o valor da propriedade numero.
      * 
      * @return
      *     possible object is
@@ -128,7 +129,7 @@ public class PesquisarCPFOmnichannel {
     }
 
     /**
-     * Obtém o valor da propriedade tipoTelefone.
+     * Obtï¿½m o valor da propriedade tipoTelefone.
      * 
      * @return
      *     possible object is
@@ -152,7 +153,7 @@ public class PesquisarCPFOmnichannel {
     }
 
     /**
-     * Obtém o valor da propriedade statusTelefone.
+     * Obtï¿½m o valor da propriedade statusTelefone.
      * 
      * @return
      *     possible object is

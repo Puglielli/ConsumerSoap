@@ -1,8 +1,8 @@
 //
-// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.11 
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementaï¿½ï¿½o de Referï¿½ncia (JAXB) de Bind XML, v2.2.11 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
-// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2019.07.04 às 05:17:54 PM GMT-03:00 
+// Todas as modificaï¿½ï¿½es neste arquivo serï¿½o perdidas apï¿½s a recompilaï¿½ï¿½o do esquema de origem. 
+// Gerado em: 2019.07.04 ï¿½s 05:17:54 PM GMT-03:00 
 //
 
 
@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de clienteURAOmniType complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteï¿½do esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType name="clienteURAOmniType"&gt;
@@ -53,6 +53,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+
+@XmlRootElement(name = "return")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "clienteURAOmniType", propOrder = {
     "nome",
@@ -80,7 +82,7 @@ public class ClienteURAOmniType
     protected ClienteURAOmniType.LstAcordos lstAcordos;
 
     /**
-     * Obtém o valor da propriedade nome.
+     * Obtï¿½m o valor da propriedade nome.
      * 
      * @return
      *     possible object is
@@ -104,7 +106,7 @@ public class ClienteURAOmniType
     }
 
     /**
-     * Obtém o valor da propriedade cpfCnpj.
+     * Obtï¿½m o valor da propriedade cpfCnpj.
      * 
      * @return
      *     possible object is
@@ -128,7 +130,7 @@ public class ClienteURAOmniType
     }
 
     /**
-     * Obtém o valor da propriedade ndg.
+     * Obtï¿½m o valor da propriedade ndg.
      * 
      * @return
      *     possible object is
@@ -152,7 +154,7 @@ public class ClienteURAOmniType
     }
 
     /**
-     * Obtém o valor da propriedade escritorioPreferencial.
+     * Obtï¿½m o valor da propriedade escritorioPreferencial.
      * 
      * @return
      *     possible object is
@@ -176,7 +178,7 @@ public class ClienteURAOmniType
     }
 
     /**
-     * Obtém o valor da propriedade nomeEscritorio.
+     * Obtï¿½m o valor da propriedade nomeEscritorio.
      * 
      * @return
      *     possible object is
@@ -200,7 +202,7 @@ public class ClienteURAOmniType
     }
 
     /**
-     * Obtém o valor da propriedade telefoneEscritorio.
+     * Obtï¿½m o valor da propriedade telefoneEscritorio.
      * 
      * @return
      *     possible object is
@@ -224,7 +226,7 @@ public class ClienteURAOmniType
     }
 
     /**
-     * Obtém o valor da propriedade ramal.
+     * Obtï¿½m o valor da propriedade ramal.
      * 
      */
     public int getRamal() {
@@ -240,7 +242,7 @@ public class ClienteURAOmniType
     }
 
     /**
-     * Obtém o valor da propriedade qtdeAcordosVigentes.
+     * Obtï¿½m o valor da propriedade qtdeAcordosVigentes.
      * 
      */
     public int getQtdeAcordosVigentes() {
@@ -256,7 +258,7 @@ public class ClienteURAOmniType
     }
 
     /**
-     * Obtém o valor da propriedade lstAcordos.
+     * Obtï¿½m o valor da propriedade lstAcordos.
      * 
      * @return
      *     possible object is
@@ -283,7 +285,7 @@ public class ClienteURAOmniType
     /**
      * <p>Classe Java de anonymous complex type.
      * 
-     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * <p>O seguinte fragmento do esquema especifica o conteï¿½do esperado contido dentro desta classe.
      * 
      * <pre>
      * &lt;complexType&gt;
