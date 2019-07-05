@@ -19,10 +19,10 @@ public class SpringBootSoapClientApplication {
     @Bean
     CommandLineRunner lookup(SOAPConnector soapConnector) {
         return args -> {
-            String name = "Sajal";//Default Name
-            if(args.length>0){
-                name = args[0];
-            }
+//            String name = "Sajal";//Default Name
+//            if(args.length>0){
+//                name = args[0];
+//            }
 //            StudentDetailsRequest request = new StudentDetailsRequest();
 //            request.setName(name);
 //            StudentDetailsResponse response =(StudentDetailsResponse) soapConnector.callWebService("http://localhost:8080/service/student-details", request);
